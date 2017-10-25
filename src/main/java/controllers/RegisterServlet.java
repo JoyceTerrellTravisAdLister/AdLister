@@ -1,6 +1,5 @@
 package controllers;
 
-import doa.DaoFactory;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
