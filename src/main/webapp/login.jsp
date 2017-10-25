@@ -11,6 +11,16 @@
     <title>Login</title>
 </head>
 <body>
-
+    <form>
+        <div class="form-group">
+            <label for="username"></label>
+            <input id="username" name="username" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="password"></label>
+            <input id="password" name="password" class="form-control" type="text">
+        </div>
+        <input type="submit" class="btn btn-primary btn-block">
+    </form>
 </body>
 </html>
