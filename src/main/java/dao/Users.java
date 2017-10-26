@@ -1,6 +1,7 @@
-//package doa;
-//
-//public interface Users {
-//    User findByUsername(String username);
-//    Long insert(User user);
-//}
+package dao;
+
+import models.User;
+
+public interface Users {
+    User getUserById(long id);
+}
