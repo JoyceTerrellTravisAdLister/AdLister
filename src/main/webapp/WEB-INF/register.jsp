@@ -7,7 +7,8 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
-    <form>
+    <form action="/register" method="post">
+
         <%--Username--%>
         <div class="form-group">
            <label for="username">Username</label>
