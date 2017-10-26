@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.DaoFactory;
 import models.User;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -14,15 +15,38 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/profile");
+        // retrieve username and password from form
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        // create user object by retrieving from database
+        User user = DaoFactory.getUsersDao().getUserByUsername(username);
+
+        // if user object is null, there was no username found; reload login page
+        if (user == null) {
+            response.sendRedirect("/login");
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
+        // set the user object as "user" in the session
+        request.getSession().setAttribute("user", user);
+
+        // redirect to profile
+        response.sendRedirect("/profile");
+
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        // if user object is not null, there was a user matching in the database, therefore send to profile
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        }
+
+        // else, display the login.jsp
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
     }
 }
