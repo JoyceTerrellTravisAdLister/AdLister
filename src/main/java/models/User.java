@@ -1,10 +1,27 @@
-package Models;
+package models;
 
 public class User {
     private String username;
     private String email;
     private String password;
     private long id;
+
+    public User(){
+
+    }
+
+    public User(String username, String email, String password){
+        this.username = username;
+        this.email=email;
+        this.password = password;
+    }
+
+    public User(long id, String username, String email, String password){
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;
