@@ -1,7 +1,9 @@
 package controllers;
 
 //import dao.DaoFactory;
-import org.mindrot.jbcrypt.BCrypt;
+
+
+import models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,13 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
+
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            User user = new User(username, email, password);
+            DoaFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
+    }
+
 }
