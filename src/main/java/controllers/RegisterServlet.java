@@ -1,6 +1,6 @@
 package controllers;
 
-//import dao.DaoFactory;
+import dao.DaoFactory;
 
 
 import models.User;
@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
             String password = request.getParameter("password");
 
             User user = new User(username, email, password);
-            DoaFactory.getUsersDao().insert(user);
+            DaoFactory.getUsersDao().insertUser(user);
             response.sendRedirect("/login");
     }
 
