@@ -14,7 +14,7 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
-    <form action="/profile" method="post">
+    <form action="/login" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text">
