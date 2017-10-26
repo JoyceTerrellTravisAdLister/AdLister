@@ -3,6 +3,7 @@ package controllers;
 //import dao.DaoFactory;
 
 
+import dao.DaoFactory;
 import models.User;
 
 import javax.servlet.ServletException;
@@ -21,14 +22,14 @@ public class RegisterServlet extends HttpServlet {
     }
 
 
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String username = request.getParameter("username");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-            User user = new User(username, email, password);
-            DoaFactory.getUsersDao().insert(user);
-            response.sendRedirect("/login");
+        User user = new User(username, email, password);
+        DaoFactory.getUsersDao().insertUser(user);
+        response.sendRedirect("/login");
     }
 
 }

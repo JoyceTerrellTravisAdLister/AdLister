@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CreateAdServlet", urlPatterns = "/ads/create")
+@WebServlet(name = "CreateAdServlet", urlPatterns = "/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // if user is not logged in, redirect to login page
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
-            return;
-        }
+//        if (request.getSession().getAttribute("user") == null) {
+//            response.sendRedirect("/login");
+//            return;
+//        }
 
         // else, forward to the create-ad.jsp
         request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
@@ -32,7 +32,6 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
 
-
         // create a user object using current user object (set in login servlet)
         User user = (User) request.getSession().getAttribute("user");
 
@@ -42,7 +41,6 @@ public class CreateAdServlet extends HttpServlet {
                 request.getParameter("title"),
                 request.getParameter("description")
         );
-
 
         // insert ad into database
 //        DaoFactory.getAdsDao().insert(ad);
