@@ -15,7 +15,7 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <h1>Create an Ad</h1>
-    <form action="/profile" method="post">
+    <form action="/ads/create" method="post">
         <div class="form-group">
             <label for="username">Title</label>
             <input id="username" name="username" class="form-control" type="text">
