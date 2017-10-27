@@ -18,19 +18,18 @@ public class EditProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String username = request.getParameter("username");
+        User user = (User)request.getSession().getAttribute("user");
         String email = request.getParameter("email");
-        User user = DaoFactory.getUsersDao().getUserByUsername(username);
 
-        if(email.isEmpty() || email.equals(user.getEmail())){
+
+
+        if(user.getEmail().isEmpty() || user.getEmail().equals(email)){
             response.sendRedirect("/profile/edit");
         } else {
+            user.setEmail(email);
             DaoFactory.getUsersDao().update(user);
+            response.sendRedirect("/profile");
         }
-
-
-
-
 
     }
 
