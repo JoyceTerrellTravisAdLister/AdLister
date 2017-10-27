@@ -14,8 +14,21 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        // if user object is not null, there was a user matching in the database, therefore send to profile
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        }
+
+        // else, display the login.jsp
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // retrieve username and password from form
+        // retrieve username and password from formcodeup_test_DB//
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -33,20 +46,6 @@ public class LoginServlet extends HttpServlet {
 
         // redirect to profile
         response.sendRedirect("/profile");
-
-    }
-
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        // if user object is not null, there was a user matching in the database, therefore send to profile
-        if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/profile");
-            return;
-        }
-
-        // else, display the login.jsp
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
     }
 }

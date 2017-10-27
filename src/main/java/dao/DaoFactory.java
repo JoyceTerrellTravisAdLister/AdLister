@@ -1,5 +1,7 @@
 package dao;
 
+import models.Ad;
+
 public class DaoFactory {
     private static Users usersDao = null;
     private static Ads adsDao = null;
