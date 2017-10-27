@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -32,15 +33,34 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
 
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+
         // create a user object using current user object (set in login servlet)
         User user = (User) request.getSession().getAttribute("user");
 
         // create a new ad using current user id
         Ad ad = new Ad (
                 user.getId(),
-                request.getParameter("title"),
-                request.getParameter("description")
+                title,
+                description
         );
+
+        HashMap<String, String> adErrors = new HashMap<>();
+
+        if (title.isEmpty()) {
+            adErrors.put("title","Title cannot be left blank");
+        } else {
+            request.setAttribute("title", title);
+        }
+
+        if (description.isEmpty()) {
+            adErrors.put("description", "Description cannot be left blank");
+        } else {
+            request.setAttribute("description", description);
+        }
+
+        request.setAttribute("adErrors", adErrors);
 
         // insert ad into database
         Long newid = DaoFactory.getAdsDao().insertAd(ad);

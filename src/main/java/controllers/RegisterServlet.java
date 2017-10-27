@@ -51,14 +51,10 @@ public class RegisterServlet extends HttpServlet {
 
         if (password.isEmpty()) {
             errors.put("password", "Password cannot be left blank");
-        } else {
-            request.setAttribute("password", password);
         }
 
         if (!password.equals(confirm)) {
             errors.put("confirm", "Passwords do not match");
-        } else {
-            request.setAttribute("confirm", confirm);
         }
 
         request.setAttribute("errors", errors);

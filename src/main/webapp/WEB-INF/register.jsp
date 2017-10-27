@@ -13,9 +13,10 @@
         <%--Username--%>
         <div class="form-group">
            <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text">
+            <input id="username" name="username" class="form-control" value="${username}" type="text">
+
             <c:if test="${error != null}">
-                <span>${error}</span>
+                <span class="errors">${error}</span>
             </c:if>
 
             <c:if test="${errors.containsKey('username')}">
@@ -28,7 +29,7 @@
         <%--Email--%>
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" name="email" class="form-control" type="text">
+            <input id="email" name="email" class="form-control" value="${email}" type="text">
             <c:if test="${errors.containsKey('email')}">
                 <span class="errors">${errors.get('email')}</span>
             </c:if>

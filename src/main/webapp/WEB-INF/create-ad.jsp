@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ironicsushi
@@ -19,10 +20,16 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input id="title" name="title" class="form-control" type="text">
+            <c:if test="${adErrors.containsKey('title')}">
+                <span class="errors">${adErrors.get('title')}</span>
+            </c:if>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
             <input id="description" name="description" class="form-control" type="text">
+            <c:if test="${adErrors.containsKey('description')}">
+                <span class="errors">${adErrors.get('description')}</span>
+            </c:if>
         </div>
         <input type="submit" class="btn btn-primary btn-block">
     </form>
