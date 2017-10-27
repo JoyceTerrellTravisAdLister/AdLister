@@ -15,10 +15,10 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // if user is not logged in, redirect to login page
-//        if (request.getSession().getAttribute("user") == null) {
-//            response.sendRedirect("/login");
-//            return;
-//        }
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/login");
+            return;
+        }
 
         // else, forward to the create-ad.jsp
         request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
@@ -43,7 +43,9 @@ public class CreateAdServlet extends HttpServlet {
         );
 
         // insert ad into database
-//        DaoFactory.getAdsDao().insert(ad);
+        Long newid = DaoFactory.getAdsDao().insertAd(ad);
+        request.setAttribute("newid", newid);
+        request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
 //        response.sendRedirect("/profile");
 
 
