@@ -9,7 +9,6 @@ import java.sql.*;
 public class MySQLUsersDao implements Users {
 
     private Connection connection = null;
-    private static final String updateEmail = "UPDATE users SET email=? WHERE id=?";
 
     public MySQLUsersDao() {
         try {
@@ -71,8 +70,10 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public void update(User user) {
+
         try{
-            PreparedStatement stmt = connection.prepareStatement(updateEmail);
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET email=? WHERE id=?");
+
 
             stmt.setString(1, user.getEmail());
             stmt.setLong(2, user.getId());

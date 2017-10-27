@@ -16,5 +16,6 @@
     <%@include file="partials/navbar.jsp" %>
     <h1>Welcome, ${sessionScope.user.username}!</h1>
     <a href="/profile/edit">Edit Profile information</a>
+<span> ${sessionScope.id}</span>
 </body>
 </html>

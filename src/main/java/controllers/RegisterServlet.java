@@ -30,6 +30,7 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirm = request.getParameter("confirm-password");
+        String hash = Password.hash(password);
 
 
         if (DaoFactory.getUsersDao().getUserByUsername(username) != null) {
@@ -66,23 +67,13 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("WEB-INF/register.jsp").forward(request, response);
             return;
         }
-        String passwordConfirmation = request.getParameter("confirm_password");
-        String hash = Password.hash(password);
-//
-        // validate input
-        boolean inputHasErrors = username.isEmpty() || email.isEmpty() || password.isEmpty()
-                || (! password.equals(passwordConfirmation));
-//
-        if (inputHasErrors) {
-            response.sendRedirect("/register");
-        }   else {
+
 
             User user = new User(username, email, hash);
 
             DaoFactory.getUsersDao().insertUser(user);
 
             response.sendRedirect("/login");
-        }
 
     }
 }
