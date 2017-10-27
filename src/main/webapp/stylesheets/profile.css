@@ -1,0 +1,18 @@
+body {
+    margin: 10px;
+}
+
+.profile-header {
+    margin-left: 15px;
+}
+
+div.card {
+    border: 1px solid grey;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    width: fit-content;
+    background-color: rgba(36, 39, 41, 0.8);
+    color: white;
+}
+

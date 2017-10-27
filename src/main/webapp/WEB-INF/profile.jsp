@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: brose
@@ -11,9 +12,30 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Welcome!" />
     </jsp:include>
+    <link href="../stylesheets/profile.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <%@include file="partials/navbar.jsp" %>
+    <div class="profile-header">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <a href="/profile/edit" class="btn btn-default">Edit Profile</a>
+        <a href="/ads/create" class="btn btn-default">Create an Ad</a>
+    </div>
+
+
+    <c:forEach var="ad" items="${ads}">
+        <div class="col-sm-3">
+            <div class="card" style="">
+                <img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">${ad.title}</h4>
+                    <p class="card-text">${ad.description}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </c:forEach>
+
     <h1>Welcome, ${sessionScope.user.username}!</h1>
     <a href="/profile/edit">Edit Profile information</a>
 <span> ${sessionScope.id}</span>
