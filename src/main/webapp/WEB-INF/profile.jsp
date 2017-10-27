@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Profile Page</title>
-    <%@include file="partials/navbar.jsp" %>
+    <jsp:include page="partials/head.jsp">
+        <jsp:param name="title" value="Welcome!" />
+    </jsp:include>
 </head>
 <body>
-
+    <%@include file="partials/navbar.jsp" %>
+    <h1>Welcome, ${sessionScope.user.username}!</h1>
 </body>
 </html>
