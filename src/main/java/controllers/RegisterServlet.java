@@ -5,6 +5,8 @@ package controllers;
 
 import dao.DaoFactory;
 import models.User;
+import org.mindrot.jbcrypt.BCrypt;
+import util.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,7 @@ import java.util.HashMap;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
@@ -63,11 +66,23 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("WEB-INF/register.jsp").forward(request, response);
             return;
         }
+        String passwordConfirmation = request.getParameter("confirm_password");
+        String hash = Password.hash(password);
+//
+        // validate input
+        boolean inputHasErrors = username.isEmpty() || email.isEmpty() || password.isEmpty()
+                || (! password.equals(passwordConfirmation));
+//
+        if (inputHasErrors) {
+            response.sendRedirect("/register");
+        }   else {
 
-        User user = new User(username, email, password);
-        DaoFactory.getUsersDao().insertUser(user);
+            User user = new User(username, email, hash);
 
-        response.sendRedirect("/login");
+            DaoFactory.getUsersDao().insertUser(user);
+
+            response.sendRedirect("/login");
+        }
 
     }
 }
