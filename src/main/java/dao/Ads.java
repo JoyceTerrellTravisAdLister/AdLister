@@ -2,8 +2,11 @@ package dao;
 
 import models.Ad;
 
+import java.util.List;
+
 public interface Ads {
-    Ads getAllAds();
-    Ads getAdsByUser(long id);
-    Ads insertAd(Ad ad);
+    List<Ad> getAllAds();
+    List<Ad> getAdsByUser(long id);
+    long insertAd(Ad ad);
+    Ad getAdById(long id);
 }
