@@ -11,6 +11,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Login" />
     </jsp:include>
+    <link href="../stylesheets/test.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
