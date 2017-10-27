@@ -1,0 +1,24 @@
+div.container {
+    text-align: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: +100;
+}
+
+div.header {
+    background-color: rgba(36, 39, 41, 0.8);
+    color: white;
+
+}
+
+.jumbotron {
+    background-image: url("../imgs/0202-jacob-inset2-810x960.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+}
