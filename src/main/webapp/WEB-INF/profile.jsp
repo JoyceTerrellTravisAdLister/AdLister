@@ -20,6 +20,7 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <a href="/profile/edit" class="btn btn-default">Edit Profile</a>
         <a href="/ads/create" class="btn btn-default">Create an Ad</a>
+        <span> ${sessionScope.id}</span>
     </div>
 
 
@@ -35,9 +36,5 @@
             </div>
         </div>
     </c:forEach>
-
-    <h1>Welcome, ${sessionScope.user.username}!</h1>
-    <a href="/profile/edit">Edit Profile information</a>
-<span> ${sessionScope.id}</span>
 </body>
 </html>
