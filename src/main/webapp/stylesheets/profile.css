@@ -1,9 +1,14 @@
 body {
     margin: 10px;
+    background-image: url("../imgs/spiration-light.png");
 }
 
 .profile-header {
     margin-left: 15px;
+}
+
+.dad-photo {
+    width: 100%;
 }
 
 div.card {
