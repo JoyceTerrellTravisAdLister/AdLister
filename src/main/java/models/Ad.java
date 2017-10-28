@@ -1,22 +1,29 @@
 package models;
 
+import java.sql.Timestamp;
+
 public class Ad {
     private long userId;
     private long id;
     private String title;
     private String description;
+    private Timestamp timeCreated;
 
-    public Ad(long id, long userId, String title, String description){
+    public Ad() { }
+
+    public Ad(long id, long userId, String title, String description, Timestamp timeCreated){
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.timeCreated = timeCreated;
     }
 
     public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.timeCreated = new Timestamp(System.currentTimeMillis());
     }
 
     public long getUserId() {
@@ -49,5 +56,13 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Timestamp getTimeCreated() {
+        return timeCreated;
+    }
+
+    public void setTimeCreated(Timestamp timeCreated) {
+        this.timeCreated = timeCreated;
     }
 }
