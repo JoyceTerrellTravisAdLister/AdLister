@@ -10,7 +10,7 @@ import java.util.List;
 public class MySQLAdsDAO implements Ads {
     private Connection connection = null;
 
-    public MySQLAdsDAO() {
+    MySQLAdsDAO() {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
@@ -31,12 +31,13 @@ public class MySQLAdsDAO implements Ads {
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads");
             ResultSet rs = stmt.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
                 ads.add(new Ad(
                         rs.getLong("id"),
                         rs.getLong("user_id"),
                         rs.getString("title"),
-                        rs.getString("description")
+                        rs.getString("description"),
+                        rs.getTimestamp("created_at")
                 ));
             }
         } catch (SQLException e) {
@@ -55,12 +56,13 @@ public class MySQLAdsDAO implements Ads {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
                 adsByUser.add(new Ad(
                         rs.getLong("id"),
                         rs.getLong("user_id"),
                         rs.getString("title"),
-                        rs.getString("description")
+                        rs.getString("description"),
+                        rs.getTimestamp("created_at")
                 ));
             }
         } catch (SQLException e) {
@@ -72,16 +74,17 @@ public class MySQLAdsDAO implements Ads {
 
     @Override
     public long insertAd(Ad ad) {
-        long newId = 0;
+        long newId;
 
         try {
             PreparedStatement stmt = connection.prepareStatement(
-                    "INSERT INTO ads (user_id, title, description) VALUES (?,?,?)",
+                    "INSERT INTO ads (user_id, title, description, created_at) VALUES (?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS
             );
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
+            stmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
@@ -104,12 +107,13 @@ public class MySQLAdsDAO implements Ads {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 ad = new Ad(
                         rs.getLong("id"),
                         rs.getLong("user_id"),
                         rs.getString("title"),
-                        rs.getString("description")
+                        rs.getString("description"),
+                        rs.getTimestamp("created_at")
                 );
             }
         } catch (SQLException e) {
@@ -118,4 +122,35 @@ public class MySQLAdsDAO implements Ads {
 
         return ad;
     }
+
+    @Override
+    public List<Ad> getNewestAds(int limit) {
+        List<Ad> newestAds = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(
+                    "SELECT * FROM ads ORDER BY created_at DESC LIMIT ?"
+            );
+
+            stmt.setInt(1, limit);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                newestAds.add(new Ad(
+                                rs.getLong("id"),
+                                rs.getLong("user_id"),
+                                rs.getString("title"),
+                                rs.getString("description"),
+                                rs.getTimestamp("created_at")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(String.format("Error retrieving the newest %s ads", limit), e);
+        }
+
+        return newestAds;
+    }
+
+
 }
