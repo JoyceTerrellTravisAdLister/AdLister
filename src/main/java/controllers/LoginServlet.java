@@ -3,6 +3,7 @@ package controllers;
 import dao.DaoFactory;
 import models.User;
 import org.mindrot.jbcrypt.BCrypt;
+import util.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,25 +28,23 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // retrieve username and password from formcodeup_test_DB//
-
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        // create user object by retrieving from database
         User user = DaoFactory.getUsersDao().getUserByUsername(username);
 
-        // if user object is null, there was no username found; reload login page
         if (user == null) {
             response.sendRedirect("/login");
             return;
         }
 
-        // set the user object as "user" in the session
-        request.getSession().setAttribute("user", user);
+        boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
 
-        // redirect to profile
-        response.sendRedirect("/profile");
+        if (validAttempt) {
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
+        } else {
+            response.sendRedirect("/login");
+        }
 
     }
 }
