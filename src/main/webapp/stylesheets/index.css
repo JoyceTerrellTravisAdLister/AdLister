@@ -1,3 +1,7 @@
+body {
+    background-image: url("../imgs/spiration-light.png");
+}
+
 div.container {
     text-align: center;
     width: 100%;
@@ -29,7 +33,7 @@ h1, h2 {
 }
 
 .heading {
-    margin-left: 15px;
+    margin-left: 10px;
     font-size: 35px;
 }
 
@@ -54,13 +58,29 @@ h1, h2 {
 
 div.card {
     border: 1px solid grey;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 15px;
+    margin: 15px 0px;
     width: 100%;
     background-color: rgba(36, 39, 41, 0.8);
     color: white;
-    height: 150px;
+    height: 170px;
+}
+
+
+h4.card-title {
+    border-bottom: 1px solid black;
+    background: floralwhite;
+    padding: 10px;
+    margin: 0;
+    color: black;
+}
+
+p.card-text {
+    margin: 10px;
+    height: 50px;
+}
+
+.card-body>a {
+    margin: 10px;
 }
 
 .col-sm-4 {
