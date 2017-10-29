@@ -30,7 +30,7 @@
             <div class="card-body">
                 <h4 class="card-title">Loves to BBQ</h4>
                 <p class="card-text">I'm having some guests over on Saturday night and hope I can find someone to grill.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">More Details</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
             <div class="card-body">
                 <h4 class="card-title">Baseball game?</h4>
                 <p class="card-text">I need a dad to come with me and my son to the baseball game!</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">More Details</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
             <div class="card-body">
                 <h4 class="card-title">My dad is too busy</h4>
                 <p class="card-text">I need someone to come to my ballet performances at school.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">More Details</a>
             </div>
         </div>
     </div>
