@@ -41,6 +41,11 @@ h1, h2 {
     font-size: 14px;
 }
 
+a.btn.btn-primary {
+    background-color: #239288 !important;
+    background-image: none;
+}
+
 .display-font, h4 {
     font-family: 'News Cycle', sans-serif;
 }
@@ -57,12 +62,16 @@ h1, h2 {
 }
 
 div.card {
-    border: 1px solid grey;
+    border: 1px solid #f7efef;
     margin: 15px 0px;
     width: 100%;
     background-color: rgba(36, 39, 41, 0.8);
     color: white;
     height: 170px;
+}
+
+div.card:hover {
+    border: 1px solid #239288;
 }
 
 

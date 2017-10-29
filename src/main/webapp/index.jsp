@@ -4,18 +4,16 @@
     <jsp:include page="WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome!" />
     </jsp:include>
-    <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|News+Cycle" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
 </head>
 <body>
     <jsp:include page="WEB-INF/partials/navbar.jsp" />
-    <%--<div class="container">--%>
-
 <div class="jumbotron">
     <div class="container">
         <div class="header">
                     <h1>The DadLister</h1>
-                    <p class="subtitle">Find the perfect father figure for all your needs.</p>
+                <p class="subtitle"><em>Find the <strong>perfect</strong> father figure for all your needs. </em></p>
                     <p>
                         <a class="btn btn-primary btn-lg display-font" href="/ads" role="button">See All Listings Here
                         </a>
