@@ -59,14 +59,26 @@ public class CreateAdServlet extends HttpServlet {
         } else {
             request.setAttribute("description", description);
         }
-
         request.setAttribute("adErrors", adErrors);
 
-        // insert ad into database
-        Long newid = DaoFactory.getAdsDao().insertAd(ad);
-        request.setAttribute("newid", newid);
-        response.sendRedirect("/profile");
+        if (title.isEmpty() || description.isEmpty()) {
+            request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
+            return;
+        } else {
 
+            // create a new ad using current user id
+            Ad ad = new Ad (
+                    user.getId(),
+                    title,
+                    description
+            );
+
+            // insert ad into database
+            Long newid = DaoFactory.getAdsDao().insertAd(ad);
+            request.setAttribute("newid", newid);
+
+            response.sendRedirect("/profile");
+        }
 
     }
 }
