@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="WEB-INF/partials/head.jsp">
@@ -49,15 +48,6 @@
                 <p class="card-text">I need someone to come to my ballet performances at school.</p>
                 <a href="#" class="btn btn-primary">More Details</a>
             </div>
-
-       <h2>Most Recent Ads</h2>
-        <c:forEach var="Ad" items="${newestAds}">
-            <div class="card">
-                <h3>${Ad.title}</h3>
-                <h4>${Ad.timeCreated}</h4>
-                <p>${Ad.description}</p>
-            </div>
-        </c:forEach>
         </div>
     </div>
 </div>
