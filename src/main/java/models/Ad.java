@@ -1,5 +1,7 @@
 package models;
 
+import util.TimestampSpan;
+
 import java.sql.Timestamp;
 
 public class Ad {
@@ -64,5 +66,10 @@ public class Ad {
 
     public void setTimeCreated(Timestamp timeCreated) {
         this.timeCreated = timeCreated;
+    }
+
+    public String getTimeDifferenceString() {
+        TimestampSpan difference = new TimestampSpan(timeCreated);
+        return difference.getDifferenceString();
     }
 }
