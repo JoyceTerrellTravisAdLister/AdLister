@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Dadlister</a>
+            <a class="navbar-brand" href="/home">Dadlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/ads">Ads</a></li>
