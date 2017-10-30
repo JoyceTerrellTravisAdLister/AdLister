@@ -12,6 +12,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Ads" />
     </jsp:include>
+    <link rel="stylesheet" href="../stylesheets/allAds.css">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
