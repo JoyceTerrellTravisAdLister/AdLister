@@ -13,6 +13,7 @@
         <jsp:param name="title" value="Create a New Ad" />
     </jsp:include>
     <link href="../stylesheets/createAd.css" rel="stylesheet">
+    <link href="../stylesheets/basic.css" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />

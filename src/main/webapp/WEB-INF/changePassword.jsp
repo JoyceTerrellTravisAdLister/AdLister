@@ -13,6 +13,7 @@
         <jsp:param name="title" value="Login" />
     </jsp:include>
     <link href="../stylesheets/changePass.css" rel="stylesheet">
+    <link href="../stylesheets/basic.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />

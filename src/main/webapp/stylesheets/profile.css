@@ -10,14 +10,3 @@ body {
 .dad-photo {
     width: 100%;
 }
-
-div.card {
-    border: 1px solid grey;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    width: fit-content;
-    background-color: rgba(36, 39, 41, 0.8);
-    color: white;
-}
-
