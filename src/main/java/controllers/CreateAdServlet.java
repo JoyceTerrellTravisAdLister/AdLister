@@ -39,6 +39,13 @@ public class CreateAdServlet extends HttpServlet {
         // create a user object using current user object (set in login servlet)
         User user = (User) request.getSession().getAttribute("user");
 
+        // create a new ad using current user id
+//        Ad ad = new Ad (
+//                user.getId(),
+//                title,
+//                description
+//        );
+
         HashMap<String, String> adErrors = new HashMap<>();
 
         if (title.isEmpty()) {

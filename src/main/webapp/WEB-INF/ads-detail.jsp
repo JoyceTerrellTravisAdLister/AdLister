@@ -16,6 +16,18 @@
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <h1>Ad Details</h1>
-
+    <div class="col-sm-3">
+        <div class="card" style="">
+            <img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">${viewAdInfo.title}</h4>
+                <p class="card-text">${viewAdInfo.description}</p>
+                <form action="/ad/delete?id=${viewAdInfo.id}" method="post">
+                      <button class="btn btn-primary" type="submit">Delete</button>
+                </form>
+                <a href="#" class="btn btn-primary">update</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
