@@ -65,7 +65,6 @@ public class CreateAdServlet extends HttpServlet {
         // insert ad into database
         Long newid = DaoFactory.getAdsDao().insertAd(ad);
         request.setAttribute("newid", newid);
-        request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
         response.sendRedirect("/profile");
 
 
