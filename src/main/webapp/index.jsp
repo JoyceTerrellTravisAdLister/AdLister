@@ -61,9 +61,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">${Ad.title}</h4>
-                        <h4 class="card-subtitle">${Ad.timeCreated}</h4>
+                        <%--<h4 class="card-subtitle">${Ad.timeCreated}</h4>--%>
                         <h4 class="card-subtitle">Added ${Ad.getTimeDifferenceString()}</h4>
                         <p class="card-text">${Ad.description}</p>
+                        <a href="/ad?id=${Ad.id}" class="btn btn-primary">More Details</a>
                     </div>
                 </div>
             </div>
