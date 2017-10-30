@@ -28,7 +28,7 @@ public class MySQLAdsDAO implements Ads {
         List<Ad> ads = new ArrayList<>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE is_deleted=0");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -52,7 +52,7 @@ public class MySQLAdsDAO implements Ads {
         List<Ad> adsByUser = new ArrayList<>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ? AND is_deleted= 0");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
@@ -103,7 +103,7 @@ public class MySQLAdsDAO implements Ads {
         Ad ad = null;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ? AND is_deleted=0");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
@@ -129,7 +129,7 @@ public class MySQLAdsDAO implements Ads {
 
         try {
             PreparedStatement stmt = connection.prepareStatement(
-                    "SELECT * FROM ads ORDER BY created_at DESC LIMIT ?"
+                    "SELECT * FROM ads WHERE is_deleted= 0 ORDER BY created_at DESC LIMIT ?"
             );
 
             stmt.setInt(1, limit);
@@ -152,5 +152,20 @@ public class MySQLAdsDAO implements Ads {
         return newestAds;
     }
 
+    @Override
+    public void deleteAd(Ad ad) {
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET is_deleted=? WHERE id=?");
 
+
+            stmt.setBoolean(1, true);
+            stmt.setLong(2, ad.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating Profile information", e);
+        }
+
+    }
 }
