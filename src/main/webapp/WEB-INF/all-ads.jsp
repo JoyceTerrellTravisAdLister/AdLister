@@ -12,6 +12,8 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Ads" />
     </jsp:include>
+    <link rel="stylesheet" href="../stylesheets/allAds.css">
+    <link href="../stylesheets/basic.css" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -22,9 +24,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">${Ad.title}</h4>
-                        <h4 class="card-subtitle">${Ad.timeCreated}</h4>
-                        <h4 class="card-subtitle">Added ${Ad.getTimeDifferenceString()}</h4>
-                        <p class="card-text">${Ad.description}</p>
+                        <p class="card-text">${Ad.shortDescription}</p>
+
+
+                        <a href="#" class="btn btn-primary">More Details</a>
+                        <div class="card-footer">
+                            <p class="card-subtitle">${Ad.timeCreated}</p>
+                            <p class="card-subtitle">Added ${Ad.getTimeDifferenceString()}</p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@
         <jsp:param name="title" value="Welcome!" />
     </jsp:include>
     <link href="../stylesheets/profile.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheets/basic.css" rel="stylesheet">
 </head>
 <body>
     <%@include file="partials/navbar.jsp" %>
@@ -27,12 +28,16 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-sm-3">
-            <div class="card" style="">
-                <img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">
+            <div class="card">
+                <%--<img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">--%>
                 <div class="card-body">
                     <h4 class="card-title">${ad.title}</h4>
-                    <p class="card-text">${ad.description}</p>
-                    <a href="/ad?id=${ad.id}" class="btn btn-primary">More Details</a>
+                    <p class="card-text">${ad.shortDescription}</p>
+                    <a href="#" class="btn btn-primary">More Details</a>
+                    <div class="card-footer">
+                        <p class="card-subtitle">${ad.timeCreated}</p>
+                        <p class="card-subtitle">Added ${ad.getTimeDifferenceString()}</p>
+                    </div>
                 </div>
             </div>
         </div>
