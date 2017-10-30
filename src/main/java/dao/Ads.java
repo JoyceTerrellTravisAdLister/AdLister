@@ -9,4 +9,5 @@ public interface Ads {
     List<Ad> getAdsByUser(long id);
     long insertAd(Ad ad);
     Ad getAdById(long id);
+    List<Ad> getNewestAds(int limit);
 }
