@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ironicsushi
@@ -14,7 +15,21 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
-    <h1>Complete Ad Listing</h1>
+    <div class="container">
+        <h1>Complete Ad Listing</h1>
+        <c:forEach var="Ad" items="${allAds}">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">${Ad.title}</h4>
+                        <h4 class="card-subtitle">${Ad.timeCreated}</h4>
+                        <h4 class="card-subtitle">Added ${Ad.getTimeDifferenceString()}</h4>
+                        <p class="card-text">${Ad.description}</p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 
 </body>
 </html>
