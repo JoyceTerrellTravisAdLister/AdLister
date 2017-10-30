@@ -18,8 +18,8 @@ public class ChangePasswordServlet extends HttpServlet {
 
         String oldPassword = request.getParameter("old-password");
         String newPassword = request.getParameter("new-password");
-        String confirmNewPassword = request.getParameter("confirm-new-password");
         String hash = Password.hash(newPassword);
+        String confirmNewPassword = request.getParameter("confirm-new-password");
         User user = (User)request.getSession().getAttribute("user");
 
         if (!BCrypt.checkpw(oldPassword, user.getPassword()) || !newPassword.equals(confirmNewPassword)) {
