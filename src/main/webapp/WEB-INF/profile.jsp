@@ -32,7 +32,8 @@
                 <div class="card-body">
                     <h4 class="card-title">${ad.title}</h4>
                     <p class="card-text">${ad.description}</p>
-                    <a href="/ad?id=${Ad.id}" class="btn btn-primary">More Details</a>                </div>
+                    <a href="/ad?id=${ad.id}" class="btn btn-primary">More Details</a>
+                </div>
             </div>
         </div>
     </c:forEach>

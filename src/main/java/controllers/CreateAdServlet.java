@@ -40,11 +40,11 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
 
         // create a new ad using current user id
-        Ad ad = new Ad (
-                user.getId(),
-                title,
-                description
-        );
+//        Ad ad = new Ad (
+//                user.getId(),
+//                title,
+//                description
+//        );
 
         HashMap<String, String> adErrors = new HashMap<>();
 

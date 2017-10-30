@@ -14,11 +14,18 @@ import java.io.IOException;
 public class DeleteAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+
         long id = Long.parseLong(request.getParameter("id"));
         Ad ad = DaoFactory.getAdsDao().getAdById(id);
         DaoFactory.getAdsDao().deleteAd(ad);
 
-        response.sendRedirect("/home");
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        } else {
+            response.sendRedirect("/home");
+        }
 
     }
 
