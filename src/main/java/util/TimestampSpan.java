@@ -24,12 +24,24 @@ public class TimestampSpan {
         this.start = start.getTime();
         end = System.currentTimeMillis();
         milliseconds = end - this.start;
-        this.setYears();
-        this.setMonths();
-        this.setDays();
-        this.setHours();
-        this.setMinutes();
-        this.setSeconds();
+        setYears();
+        setMonths();
+        setDays();
+        setHours();
+        setMinutes();
+        setSeconds();
+    }
+
+    public TimestampSpan(long start) {
+        this.start = milliseconds;
+        end = System.currentTimeMillis();
+        milliseconds = end - start;
+        setYears();
+        setMonths();
+        setDays();
+        setHours();
+        setMinutes();
+        setSeconds();
     }
 
     public int getYears() {
@@ -104,5 +116,72 @@ public class TimestampSpan {
 
     private void setEnd() {
         this.end = end;
+    }
+
+    public String getDifferenceString() {
+        String differenceString;
+        String stringToFormat = "%s %s ago";
+
+        if(years > 0) {
+            if(years == 1 && months <= 6) {
+                differenceString = String.format(stringToFormat, years, "year");
+            } else {
+                differenceString = String.format(
+                        stringToFormat,
+                        (months > 6 ? "about " + (years + 1) : years),
+                        "years"
+                );
+            }
+        } else if(months > 0) {
+            if(months == 1 && days <= 15) {
+                differenceString = String.format(stringToFormat, months, "month");
+            } else {
+                differenceString = String.format(
+                        stringToFormat,
+                        (days > 15 ? "about " + (months + 1) : months),
+                        "months"
+                );
+            }
+            //differenceString = String.format("%s months ago", (days > 15 ? "about " + (months + 1) : months));
+        } else if(days > 0) {
+            if(days == 1 && hours <= 12) {
+                differenceString = String.format(stringToFormat, days, "day");
+            } else {
+                differenceString = String.format(
+                        stringToFormat,
+                        (hours > 12 ? "about " + (days + 1) : days),
+                        "days"
+                );
+            }
+            //differenceString = String.format("%s days ago", (hours > 12 ? "about " + (days + 1) : days));
+        } else if(hours > 0) {
+            if(hours == 1 && minutes <= 30) {
+                differenceString = String.format(stringToFormat, hours, "hour");
+            } else {
+                differenceString = String.format(
+                        stringToFormat,
+                        (minutes > 30 ? "about " + (hours + 1) : hours),
+                        "hours"
+                );
+            }
+            //differenceString = String.format("%s hours ago", (minutes > 30 ? "about " + (hours + 1) : hours));
+        } else if(minutes > 0) {
+            if(minutes == 1 && seconds <= 30) {
+                differenceString = String.format(stringToFormat, minutes, "minute");
+            } else {
+                differenceString = String.format(
+                        stringToFormat,
+                        (seconds > 30 ? "about " + (minutes + 1) : minutes),
+                        "minutes"
+                );
+            }
+            //differenceString = String.format("%s minutes ago", (seconds > 30 ? "about " + (minutes + 1) : minutes));
+        } else if(seconds > 30) {
+            differenceString = String.format("%d seconds ago", seconds);
+        } else {
+            differenceString = "a few moments ago";
+        }
+
+        return differenceString;
     }
 }
