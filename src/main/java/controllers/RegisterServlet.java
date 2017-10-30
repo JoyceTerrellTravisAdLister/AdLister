@@ -31,6 +31,8 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String confirm = request.getParameter("confirm-password");
         String hash = Password.hash(password);
+        User existingUser = DaoFactory.getUsersDao().getUserByUsername(username);
+
 
 
         if (DaoFactory.getUsersDao().getUserByUsername(username) != null) {
@@ -40,6 +42,12 @@ public class RegisterServlet extends HttpServlet {
         }
 
         HashMap<String, String> errors = new HashMap<>();
+
+        if (existingUser != null) {
+            errors.put("username", "Username already exists");
+        } else {
+            request.setAttribute("username", username);
+        }
 
         if (username.isEmpty()) {
             errors.put("username", "Username cannot be left blank");
