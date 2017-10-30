@@ -30,7 +30,5 @@ public class EditProfileServlet extends HttpServlet {
             DaoFactory.getUsersDao().update(user);
             response.sendRedirect("/profile");
         }
-
     }
-
 }
