@@ -43,12 +43,6 @@ public class RegisterServlet extends HttpServlet {
 
         HashMap<String, String> errors = new HashMap<>();
 
-        if (existingUser != null) {
-            errors.put("username", "Username already exists");
-        } else {
-            request.setAttribute("username", username);
-        }
-
         if (username.isEmpty()) {
             errors.put("username", "Username cannot be left blank");
         } else {

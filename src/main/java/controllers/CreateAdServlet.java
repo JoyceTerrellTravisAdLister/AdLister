@@ -39,13 +39,6 @@ public class CreateAdServlet extends HttpServlet {
         // create a user object using current user object (set in login servlet)
         User user = (User) request.getSession().getAttribute("user");
 
-        // create a new ad using current user id
-        Ad ad = new Ad (
-                user.getId(),
-                title,
-                description
-        );
-
         HashMap<String, String> adErrors = new HashMap<>();
 
         if (title.isEmpty()) {
@@ -59,15 +52,26 @@ public class CreateAdServlet extends HttpServlet {
         } else {
             request.setAttribute("description", description);
         }
-
         request.setAttribute("adErrors", adErrors);
 
-        // insert ad into database
-        Long newid = DaoFactory.getAdsDao().insertAd(ad);
-        request.setAttribute("newid", newid);
-        request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
-        response.sendRedirect("/profile");
+        if (title.isEmpty() || description.isEmpty()) {
+            request.getRequestDispatcher("/WEB-INF/create-ad.jsp").forward(request, response);
+            return;
+        } else {
 
+            // create a new ad using current user id
+            Ad ad = new Ad (
+                    user.getId(),
+                    title,
+                    description
+            );
+
+            // insert ad into database
+            Long newid = DaoFactory.getAdsDao().insertAd(ad);
+            request.setAttribute("newid", newid);
+
+            response.sendRedirect("/profile");
+        }
 
     }
 }

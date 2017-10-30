@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS jtt_adlister_db;
 USE jtt_adlister_db;
 
 DROP TABLE IF EXISTS ads_categories;
