@@ -1,41 +1,66 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome!" />
     </jsp:include>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|News+Cycle" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
 </head>
 <body>
     <jsp:include page="WEB-INF/partials/navbar.jsp" />
-    <%--<div class="container">--%>
-
-        <div class="jumbotron header">
-            <div class="container">
-                <div class="header">
+<div class="jumbotron">
+    <div class="container">
+        <div class="header">
                     <h1>The DadLister</h1>
-                    <p>Find the perfect father figure for all your needs!</p>
+                <p class="subtitle"><em>Find the <strong>perfect</strong> father figure for all your needs. </em></p>
                     <p>
-                        <a class="btn btn-primary btn-lg" href="/ads" role="button">See All Listings Here
+                        <a class="btn btn-primary btn-lg display-font" href="/ads" role="button">See All Listings Here
                         </a>
                     </p>
                 </div>
             </div>
         </div>
+<h2 class="heading">Recently Added</h2>
+<div class="recent-container">
+    <div class="col-sm-4">
+        <div class="card" style="">
+            <div class="card-body">
+                <h4 class="card-title">Loves to BBQ</h4>
+                <p class="card-text">I'm having some guests over on Saturday night and hope I can find someone to grill.</p>
+                <a href="#" class="btn btn-primary">More Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card" style="">
+            <div class="card-body">
+                <h4 class="card-title">Baseball game?</h4>
+                <p class="card-text">I need a dad to come with me and my son to the baseball game!</p>
+                <a href="#" class="btn btn-primary">More Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card" style="">
+            <div class="card-body">
+                <h4 class="card-title">My dad is too busy</h4>
+                <p class="card-text">I need someone to come to my ballet performances at school.</p>
+                <a href="#" class="btn btn-primary">More Details</a>
+            </div>
 
-        <h2>Recently Added</h2>
-        <div class="ad-card">
-            <h3>New Ad 1</h3>
-            <p>Description...</p>
+       <h2>Most Recent Ads</h2>
+        <c:forEach var="Ad" items="${newestAds}">
+            <div class="card">
+                <h3>${Ad.title}</h3>
+                <h4>${Ad.timeCreated}</h4>
+                <p>${Ad.description}</p>
+            </div>
+        </c:forEach>
         </div>
-        <div class="ad-card">
-            <h3>New Ad 2</h3>
-            <p>Description...</p>
-        </div>
-        <div class="ad-card">
-            <h3>New Ad 3</h3>
-            <p>Description...</p>
-        </div>
+    </div>
+</div>
     <%--</div>--%>
 </body>
 </html>
