@@ -20,7 +20,7 @@
 <h1>Edit Your Ad</h1>
 <div class="form-container">
     <div class="input-container">
-        <form action="/ads/create" method="post">
+        <form action="/ad/edit" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text" value="${title}">
