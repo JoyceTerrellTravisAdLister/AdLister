@@ -25,7 +25,9 @@
                 <form action="/ad/delete?id=${viewAdInfo.id}" method="post">
                       <button class="btn btn-primary" type="submit">Delete</button>
                 </form>
-                <a href="#" class="btn btn-primary">update</a>
+                <form action="/ad/update?id=${viewAdInfo.id}" method="post">
+                    <a href="/ad/update" class="btn btn-primary" type="submit">Update</a>
+                </form>
             </div>
         </div>
     </div>

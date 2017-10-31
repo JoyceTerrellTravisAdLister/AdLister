@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h4 class="card-title">${ad.title}</h4>
                     <p class="card-text">${ad.shortDescription}</p>
-                    <a href="#" class="btn btn-primary">More Details</a>
+                    <a href="/ad?id=${ad.id}" class="btn btn-primary">More Details</a>
                     <div class="card-footer">
                         <p class="card-subtitle">${ad.timeCreated}</p>
                         <p class="card-subtitle">Added ${ad.getTimeDifferenceString()}</p>
