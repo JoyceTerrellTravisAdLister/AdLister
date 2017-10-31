@@ -168,4 +168,21 @@ public class MySQLAdsDAO implements Ads {
         }
 
     }
+
+    @Override
+    public void updateAd(Ad ad) {
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET title=?, desciption=? WHERE id=?");
+
+
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(2, ad.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating Profile information", e);
+        }
+    }
 }

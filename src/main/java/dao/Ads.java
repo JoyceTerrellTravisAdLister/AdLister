@@ -11,4 +11,5 @@ public interface Ads {
     Ad getAdById(long id);
     List<Ad> getNewestAds(int limit);
     void deleteAd(Ad ad);
+    void updateAd(Ad ad);
 }
