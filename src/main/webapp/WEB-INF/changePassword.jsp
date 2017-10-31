@@ -13,10 +13,11 @@
         <jsp:param name="title" value="Login" />
     </jsp:include>
     <link href="../stylesheets/changePass.css" rel="stylesheet">
-    <link href="../stylesheets/basic.css" rel="stylesheet">
+    <%--<link href="../stylesheets/basic.css" rel="stylesheet">--%>
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
+<h1>Change Your Password</h1>
 <div class="form-container">
     <div class="input-container">
         <form action="/profile/password" method="POST">

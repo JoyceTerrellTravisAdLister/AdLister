@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 43%;
+    top: 49%;
     left: 50%;
     height: 57%;
     width: 50%;
@@ -27,4 +27,15 @@ div.input-container {
 input[type=submit].btn-block {
     width: 75%;
     margin: 50px 0 60px 10%;
+}
+
+input.btn.btn-primary.btn-block {
+    background-color: #239288 !important;
+    background-image: none;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    padding-top: 20px;
 }

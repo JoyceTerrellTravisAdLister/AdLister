@@ -9,6 +9,7 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
+<h1>Register Below</h1>
 <div class="form-container">
     <div class="input-container">
         <form action="/register" method="POST">

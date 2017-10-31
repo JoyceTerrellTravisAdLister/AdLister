@@ -12,22 +12,28 @@
         <jsp:param name="title" value="Ad Details" />
     </jsp:include>
     <link href="../stylesheets/basic.css" rel="stylesheet">
+    <link href="../stylesheets/ads-detail.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <h1>Ad Details</h1>
-    <div class="col-sm-3">
+    <div class="card-container">
         <div class="card" style="">
-            <img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">
+            <%--<img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">--%>
             <div class="card-body">
                 <h4 class="card-title">${viewAdInfo.title}</h4>
-                <p class="card-text">${viewAdInfo.description}</p>
-                <form action="/ad/delete?id=${viewAdInfo.id}" method="post">
-                      <button class="btn btn-primary" type="submit">Delete</button>
-                </form>
-                <form action="/ad/update?id=${viewAdInfo.id}" method="post">
-                    <a href="/ad/update" class="btn btn-primary" type="submit">Update</a>
-                </form>
+                <p class="card-text">${viewAdInfo.shortDescription}</p>
+
+                <div class="button-container">
+                    <form action="/ad/delete?id=${viewAdInfo.id}" method="post">
+                          <button class="btn btn-primary delete" type="submit">Delete</button>
+                    </form>
+                    <form action="/ad/update?id=${viewAdInfo.id}" method="post">
+                        <a href="/ad/update" class="btn btn-primary" type="submit">Edit</a>
+                    </form>
+                </div>
+
+
             </div>
         </div>
     </div>

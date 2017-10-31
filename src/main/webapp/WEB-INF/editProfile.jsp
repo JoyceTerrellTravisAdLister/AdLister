@@ -12,11 +12,12 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Login" />
     </jsp:include>
-    <link rel="stylesheet" href="../stylesheets/editProfile.css">
     <link href="../stylesheets/basic.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/editProfile.css">
 </head>
 <body>
 <%@include file="partials/navbar.jsp" %>
+<h1>Edit Profile</h1>
 <div class="form-container">
     <div class="input-container">
         <form action="/profile/edit" method="POST">
