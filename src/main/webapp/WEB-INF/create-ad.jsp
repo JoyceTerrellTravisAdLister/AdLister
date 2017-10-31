@@ -10,10 +10,10 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Create a New Ad" />
+        <jsp:param name="title" value="Create an Ad" />
     </jsp:include>
-    <link href="../stylesheets/createAd.css" rel="stylesheet">
     <link href="../stylesheets/basic.css" rel="stylesheet">
+    <link href="../stylesheets/createAd.css" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />

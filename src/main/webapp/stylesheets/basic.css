@@ -1,5 +1,6 @@
 body {
     position: relative;
+    font-family: 'News Cycle', sans-serif;
 }
 
 h1, h2, h3 {
@@ -52,13 +53,6 @@ p.card-subtitle {
     margin: 0 0 0 10px;
 }
 
-a.btn.btn-primary {
-    background-color: #239288 !important;
-    background-image: none;
-    margin-top: 10px;
-    margin-left: 8px;
-    margin-bottom: 5px;
-}
 
 .form-container {
     background-color: white;
@@ -69,7 +63,7 @@ a.btn.btn-primary {
     position: absolute;
     top: 43%;
     left: 50%;
-    height: 47%;
+    height: 42%;
     width: 50%;
     margin: -15% 0 0 -25%;
     border-radius: 40px;
@@ -85,4 +79,12 @@ div.input-container {
 input[type=submit].btn-block {
     width: 75%;
     margin: 50px 0 60px 10%;
+}
+
+a.btn.btn-primary {
+    background-color: #239288 !important;
+    background-image: none;
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-bottom: 5px;
 }
