@@ -17,24 +17,27 @@
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
-<form action="/profile/password" method="POST">
-<%-- old password --%>
-<div class="form-group">
-    <label for="old-password">Old Password</label>
-    <input id="old-password" name="old-password" class="form-control" type="password">
+<div class="form-container">
+    <div class="input-container">
+        <form action="/profile/password" method="POST">
+        <%-- old password --%>
+        <div class="form-group">
+            <label for="old-password">Current Password</label>
+            <input id="old-password" name="old-password" class="form-control" type="password">
+        </div>
+        <%-- new- password field--%>
+        <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input id="new-password" name="new-password" class="form-control" type="password">
+        </div>
+        <%--Confirm new-password--%>
+        <div class="form-group">
+            <label for="confirm-new-password">Confirm Password</label>
+            <input id="confirm-new-password" name="confirm-new-password" class="form-control" type="password">
+        </div>
+            <input type="submit" class="btn btn-primary btn-block">
+        </form>
+    </div>
 </div>
-<%-- new- password field--%>
-<div class="form-group">
-    <label for="new-password">New Password</label>
-    <input id="new-password" name="new-password" class="form-control" type="password">
-</div>
-<%--Confirm new-password--%>
-<div class="form-group">
-    <label for="confirm-new-password">Confirm Password</label>
-    <input id="confirm-new-password" name="confirm-new-password" class="form-control" type="password">
-</div>
-    <input type="submit" class="btn btn-primary btn-block">
-</form>
-
 </body>
 </html>
