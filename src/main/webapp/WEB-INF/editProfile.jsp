@@ -17,13 +17,17 @@
 </head>
 <body>
 <%@include file="partials/navbar.jsp" %>
-<form action="/profile/edit" method="POST">
-    <%--Email--%>
-    <div class="form-group">
-        <label for="email">Change Email</label>
-        <input id="email" name="email" class="form-control" type="text">
+<div class="form-container">
+    <div class="input-container">
+        <form action="/profile/edit" method="POST">
+            <%--Email--%>
+            <div class="form-group">
+                <label for="email">Change Email</label>
+                <input id="email" name="email" class="form-control" type="text">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block">
+        </form>
     </div>
-    <input type="submit" class="btn btn-primary btn-block">
-</form>
+</div>
 </body>
 </html>
