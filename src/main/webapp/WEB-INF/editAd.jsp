@@ -20,21 +20,22 @@
 <h1>Edit Your Ad</h1>
 <div class="form-container">
     <div class="input-container">
-        <form action="/ads/create" method="post">
+        <form action="/ad/edit" method="POST">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text" value="${title}">
+                <input id="title" name="title" class="form-control" type="text" value="${ad.title}">
                 <c:if test="${adErrors.containsKey('title')}">
                     <span class="errors">${adErrors.get('title')}</span>
                 </c:if>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input id="description" name="description" class="form-control" type="text" value="${description}">
+                <input id="description" name="description" class="form-control" type="text" value="${ad.description}">
                 <c:if test="${adErrors.containsKey('description')}">
                     <span class="errors">${adErrors.get('description')}</span>
                 </c:if>
             </div>
+            <input type="hidden" name="id" value="${ad.id}">
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>

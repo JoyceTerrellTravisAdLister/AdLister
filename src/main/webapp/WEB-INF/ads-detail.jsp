@@ -28,8 +28,8 @@
                     <form action="/ad/delete?id=${viewAdInfo.id}" method="post">
                           <button class="btn btn-primary delete" type="submit">Delete</button>
                     </form>
-                    <form action="/ad/update?id=${viewAdInfo.id}" method="post">
-                        <a href="/ad/update" class="btn btn-primary" type="submit">Edit</a>
+                    <form action="/ad/edit?id=${viewAdInfo.id}" method="post">
+                        <a href="/ad/edit?id=${viewAdInfo.id}" class="btn btn-primary" type="submit">Edit</a>
                     </form>
                 </div>
 
