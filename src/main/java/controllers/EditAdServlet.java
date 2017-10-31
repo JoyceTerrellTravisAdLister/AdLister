@@ -15,6 +15,7 @@ public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         long id = Long.parseLong(request.getParameter("id"));
+        System.out.println(id);
         Ad ad = DaoFactory.getAdsDao().getAdById(id);
         String title = request.getParameter("title");
         String description = request.getParameter("description");
@@ -23,21 +24,13 @@ public class EditAdServlet extends HttpServlet {
         ad.setDescription(description);
         DaoFactory.getAdsDao().updateAd(ad);
 
-        if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/profile");
-            return;
-        } else {
-            response.sendRedirect("/home");
-        }
+        response.sendRedirect("/profile");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
+        long id = Long.parseLong(request.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().getAdById(id);
+        request.setAttribute("ad", ad);
         request.getRequestDispatcher("/WEB-INF/editAd.jsp").forward(request, response);
-
-
-
     }
 }
