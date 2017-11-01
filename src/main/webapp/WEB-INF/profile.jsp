@@ -21,8 +21,8 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <a href="/profile/edit" class="btn btn-default">Edit Profile</a>
         <a href="/profile/password" class="btn btn-default">Change Password</a>
-        <a href="/ads/create" class="btn btn-default">Create an Ad</a>
-        <a href="/ads/deleted" class="btn btn-default">Deleted Ads</a>
+        <a href="/ads/create" class="btn btn-default ads">Create an Ad</a>
+        <a href="/ads/deleted" class="btn btn-default ads">Deleted Ads</a>
         <span> ${sessionScope.id}</span>
     </div>
 
