@@ -3,7 +3,7 @@ package controllers;
 import dao.DaoFactory;
 import models.User;
 import org.mindrot.jbcrypt.BCrypt;
-import util.Password;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
