@@ -97,6 +97,17 @@
             setInterval(doScroll, 20);
             tweenToNewSpeed(controller.fullSpeed);
         });
+
+        function checkErrorMessages() {
+
+            if (document.getElementsByClassName("errors").length > 0) {
+                document.getElementsByClassName("form-container")[0].style.height = "57%";
+            }
+
+        }
+
+        window.onload = checkErrorMessages();
+
     </script>
 
 </body>

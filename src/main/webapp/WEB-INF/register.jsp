@@ -54,9 +54,24 @@
                     <span class="errors">${errors.get('confirm')}</span>
                 </c:if>
             </div>
-            <input type="submit" class="btn btn-primary btn-block">
+            <input type="submit" class="btn btn-primary btn-block" id="register-button">
         </form>
     </div>
 </div>
+
+<script>
+
+function checkErrorMessages() {
+
+    if (document.getElementsByClassName("errors").length > 0) {
+        document.getElementsByClassName("form-container")[0].style.height = "68%";
+    }
+
+}
+
+window.onload = checkErrorMessages();
+
+
+</script>
 </body>
 </html>

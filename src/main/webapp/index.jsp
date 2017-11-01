@@ -6,8 +6,8 @@
         <jsp:param name="title" value="Welcome!"/>
     </jsp:include>
     <link href="https://fonts.googleapis.com/css?family=Lobster|News+Cycle" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
     <link rel="stylesheet" href="stylesheets/basic.css">
+    <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
 </head>
 <body>
 <jsp:include page="WEB-INF/partials/navbar.jsp"/>

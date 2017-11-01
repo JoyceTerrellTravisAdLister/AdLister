@@ -46,5 +46,18 @@
         </form>
     </div>
 </div>
+
+<script>
+    function checkErrorMessages() {
+
+        if (document.getElementsByClassName("errors").length > 0) {
+            document.getElementsByClassName("form-container")[0].style.height = "37%";
+        }
+
+    }
+
+    window.onload = checkErrorMessages();
+
+</script>
 </body>
 </html>
