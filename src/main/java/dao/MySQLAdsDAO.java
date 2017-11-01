@@ -182,7 +182,32 @@ public class MySQLAdsDAO implements Ads {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error updating Profile information", e);
+            throw new RuntimeException("Error updating Ad information", e);
         }
     }
+
+    @Override
+    public List<Ad> getDeletedAds() {
+        List<Ad> ads = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE is_deleted=1");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ads.add(new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description"),
+                        rs.getTimestamp("created_at")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads from the database", e);
+        }
+
+        return ads;
+    }
+
 }

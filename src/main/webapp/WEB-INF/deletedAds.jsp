@@ -18,14 +18,19 @@
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <div class="container">
-    <h1>Complete Ad Listing</h1>
-    <c:forEach var="Ad" items="${allAds}">
+    <div class="profile-header">
+        <h1>${sessionScope.user.username}!</h1>
+        <h1>Deleted Ads Listing</h1>
+        <br>
+        <a href="/profile" class="btn btn-default">Return to Profile</a>
+        <span> ${sessionScope.id}</span>
+    </div>
+    <c:forEach var="Ad" items="${deletedAds}">
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">${Ad.title}</h4>
                     <p class="card-text">${Ad.shortDescription}</p>
-                    <a href="/ad?id=${Ad.id}" class="btn btn-primary">More Details</a>
                     <div class="card-footer">
                         <p class="card-subtitle">${Ad.timeCreated}</p>
                         <p class="card-subtitle">Added ${Ad.getTimeDifferenceString()}</p>
@@ -35,6 +40,5 @@
         </div>
     </c:forEach>
 </div>
-
 </body>
 </html>
