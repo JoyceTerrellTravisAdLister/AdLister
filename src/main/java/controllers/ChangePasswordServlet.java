@@ -33,9 +33,13 @@ public class ChangePasswordServlet extends HttpServlet {
             errors.put("password", "Current password is incorrect");
         }
 
+        if(newPassword.isEmpty()){
+            errors.put("mustHave", "Password cannot be empty");
+        }
+
         request.setAttribute("errors", errors);
 
-        if (!newPassword.equals(confirmNewPassword)|| !BCrypt.checkpw(oldPassword, user.getPassword())) {
+        if (!newPassword.equals(confirmNewPassword)|| !BCrypt.checkpw(oldPassword, user.getPassword()) || newPassword.isEmpty()) {
             request.getRequestDispatcher("/WEB-INF/changePassword.jsp").forward(request, response);
             return;
         }
