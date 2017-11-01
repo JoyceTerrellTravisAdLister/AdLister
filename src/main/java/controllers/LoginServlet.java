@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -32,9 +33,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().getUserByUsername(username);
 
+        HashMap<String, String> errors = new HashMap<>();
+
         if (user == null) {
-            response.sendRedirect("/login");
-            return;
+            errors.put("exist", "Username is incorrect or does not exist");
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
 
         boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
