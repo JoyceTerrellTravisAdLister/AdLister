@@ -22,7 +22,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 42%;
+    height: 34%;
     width: 50%;
     margin: -15% 0 0 -25%;
     border-radius: 40px;
@@ -46,4 +46,10 @@ a.btn.btn-primary {
     margin-top: 10px;
     margin-left: 8px;
     margin-bottom: 5px;
+}
+
+.btn-return {
+    position: absolute;
+    top: 60px;
+    left: 10px;
 }

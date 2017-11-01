@@ -18,10 +18,9 @@
 <body>
 <%@include file="partials/navbar.jsp" %>
 <div class="profile-header">
-    <h1>${sessionScope.user.username}!</h1>
-    <h1>Edit Profile</h1>
+    <h1>Edit Your Profile</h1>
     <br>
-    <a href="/profile" class="btn btn-default">Return to Profile</a>
+    <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
     <span> ${sessionScope.id}</span>
 </div>
 <div class="form-container">
@@ -46,5 +45,18 @@
         </form>
     </div>
 </div>
+
+<script>
+    function checkErrorMessages() {
+
+        if (document.getElementsByClassName("errors").length > 0) {
+            document.getElementsByClassName("form-container")[0].style.height = "37%";
+        }
+
+    }
+
+    window.onload = checkErrorMessages();
+
+</script>
 </body>
 </html>

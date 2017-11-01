@@ -58,8 +58,8 @@ public class Ad {
 
     public String getShortDescription() {
 
-        if (description.length() >= 50) {
-            String shortDescription = description.substring(0, 50) + "...";
+        if (description.length() >= 30) {
+            String shortDescription = description.substring(0, 30) + "...";
             return shortDescription;
         } else {
             String shortDescription = description;

@@ -13,11 +13,13 @@
         <jsp:param name="title" value="Edit Your Ad" />
     </jsp:include>
     <link href="../stylesheets/basic.css" rel="stylesheet">
-    <link rel="stylesheet" href="../stylesheets/updateAd.css">
+    <link rel="stylesheet" href="../stylesheets/editAd.css">
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <h1>Edit Your Ad</h1>
+<br>
+<a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
 <div class="form-container">
     <div class="input-container">
         <form action="/ad/edit" method="POST">
@@ -40,5 +42,18 @@
         </form>
     </div>
 </div>
+<script>
+    function checkErrorMessages() {
+
+        console.log(document.getElementsByClassName("errors"));
+
+        if (document.getElementsByClassName("errors").length > 0) {
+            document.getElementsByClassName("form-container")[0].style.height = "47%";
+        }
+
+    }
+
+    window.onload = checkErrorMessages();
+</script>
 </body>
 </html>

@@ -17,30 +17,49 @@
 </head>
 <body>
     <%@include file="partials/navbar.jsp" %>
-    <div class="profile-header">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <a href="/profile/edit" class="btn btn-default">Edit Profile</a>
-        <a href="/profile/password" class="btn btn-default">Change Password</a>
-        <a href="/ads/create" class="btn btn-default ads">Create an Ad</a>
-        <a href="/ads/deleted" class="btn btn-default ads">Deleted Ads</a>
-        <span> ${sessionScope.id}</span>
+    <div class="left">
+        <div class="profile-header">
+            <h1>Welcome,
+                ${sessionScope.user.username}!</h1>
+            <img src="http://lorempixel.com/200/200" class="img-circle" alt="profile-picture">
+            <div class="button-container">
+                <a href="/profile/edit" class="btn btn-default">
+                    <span class="oi oi-pencil"></span>
+                      Edit Profile
+                </a>
+                <a href="/profile/password" class="btn btn-default">
+                    <span class="oi oi-project"></span>
+                      Edit Password
+                </a>
+                <a href="/ads/create" class="btn btn-default">
+                    <span class="oi oi-clipboard"></span>
+                      New Ad
+                <a href="/ads/deleted" class="btn btn-default">
+                    <span class="oi oi-trash"></span>
+                      Deleted Ads
+                </a>
+            <span> ${sessionScope.id}</span>
+            </div>
+        </div>
     </div>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-sm-3">
-            <div class="card">
-                <%--<img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">--%>
-                <div class="card-body">
-                    <h4 class="card-title">${ad.title}</h4>
-                    <p class="card-text">${ad.shortDescription}</p>
-                    <a href="/ad?id=${ad.id}" class="btn btn-primary">More Details</a>
-                    <div class="card-footer">
-                        <p class="card-subtitle">${ad.timeCreated}</p>
-                        <p class="card-subtitle">Added ${ad.getTimeDifferenceString()}</p>
+    <div class="main">
+        <c:forEach var="ad" items="${ads}">
+            <div class="col-sm-6">
+                <div class="card">
+                    <%--<img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">--%>
+                    <div class="card-body">
+                        <h4 class="card-title">${ad.title}</h4>
+                        <p class="card-text">${ad.shortDescription}</p>
+                        <a href="/ad?id=${ad.id}" class="btn btn-primary">More Details</a>
+                        <div class="card-footer">
+                            <p class="card-subtitle">${ad.timeCreated}</p>
+                            <p class="card-subtitle">Added ${ad.getTimeDifferenceString()}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </c:forEach>
+        </c:forEach>
+    </div>
 </body>
 </html>

@@ -14,17 +14,17 @@
     </jsp:include>
     <link rel="stylesheet" href="../stylesheets/allAds.css">
     <link href="../stylesheets/basic.css" rel="stylesheet">
+    <link href="../stylesheets/deletedAds.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
+<div class="profile-header">
+    <h1>Deleted Ads</h1>
+    <br>
+    <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
+    <span> ${sessionScope.id}</span>
+</div>
 <div class="container">
-    <div class="profile-header">
-        <h1>${sessionScope.user.username}!</h1>
-        <h1>Deleted Ads Listing</h1>
-        <br>
-        <a href="/profile" class="btn btn-default">Return to Profile</a>
-        <span> ${sessionScope.id}</span>
-    </div>
     <c:forEach var="Ad" items="${deletedAds}">
         <div class="col-sm-4">
             <div class="card">

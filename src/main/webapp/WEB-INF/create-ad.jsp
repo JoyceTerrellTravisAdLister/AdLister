@@ -18,6 +18,8 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <h1>Create an Ad</h1>
+    <br>
+    <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
     <div class="form-container">
         <div class="input-container">
             <form action="/ads/create" method="post">
@@ -35,9 +37,22 @@
                         <span class="errors">${adErrors.get('description')}</span>
                     </c:if>
                 </div>
-                <input type="submit" class="btn btn-primary btn-block">
+                <input type="submit" class="btn btn-primary btn-block" id="createAd-button">
             </form>
         </div>
     </div>
+<script>
+    function checkErrorMessages() {
+
+        console.log(document.getElementsByClassName("errors"));
+
+        if (document.getElementsByClassName("errors").length > 0) {
+            document.getElementsByClassName("form-container")[0].style.height = "47%";
+        }
+
+    }
+
+    window.onload = checkErrorMessages();
+</script>
 </body>
 </html>

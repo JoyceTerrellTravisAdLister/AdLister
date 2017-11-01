@@ -20,6 +20,10 @@ div.header {
     padding-bottom: 18px;
 }
 
+.header h1 {
+    color:floralwhite; !important;
+}
+
 h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
     font-size: x-large;

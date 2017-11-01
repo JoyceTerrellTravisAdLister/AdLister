@@ -10,3 +10,4 @@
 <link href="../../stylesheets/errors.css" type="text/css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lobster|News+Cycle" rel="stylesheet">
 <link href="../../stylesheets/navbar.css" type="text/css" rel="stylesheet">
+<link href="../open-iconic-master/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">

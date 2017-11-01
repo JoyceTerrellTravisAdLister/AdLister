@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: brose
@@ -18,6 +19,8 @@
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <h1>Change Your Password</h1>
+<br>
+<a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
 <div class="form-container">
     <div class="input-container">
         <form action="/profile/password" method="POST">
@@ -56,5 +59,18 @@
         </form>
     </div>
 </div>
+
+<script>
+    function checkErrorMessages() {
+
+        if (document.getElementsByClassName("errors").length > 0) {
+            document.getElementsByClassName("form-container")[0].style.height = "56%";
+        }
+
+    }
+
+    window.onload = checkErrorMessages();
+
+</script>
 </body>
 </html>
