@@ -25,11 +25,25 @@
         <div class="form-group">
             <label for="old-password">Current Password</label>
             <input id="old-password" name="old-password" class="form-control" type="password">
+            <c:if test="${error != null}">
+                <span class="errors">${error}</span>
+            </c:if>
+
+            <c:if test="${errors.containsKey('password')}">
+                <span class="errors">${errors.get('password')}</span>
+            </c:if>
         </div>
         <%-- new- password field--%>
         <div class="form-group">
             <label for="new-password">New Password</label>
             <input id="new-password" name="new-password" class="form-control" type="password">
+            <c:if test="${error != null}">
+                <span class="errors">${error}</span>
+            </c:if>
+
+            <c:if test="${errors.containsKey('current')}">
+                <span class="errors">${errors.get('confirm')}</span>
+            </c:if>
         </div>
         <%--Confirm new-password--%>
         <div class="form-group">
