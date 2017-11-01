@@ -41,3 +41,9 @@ input.btn.btn-primary.btn-block {
     background-color: #239288 !important;
     background-image: none;
 }
+
+.btn-return {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}

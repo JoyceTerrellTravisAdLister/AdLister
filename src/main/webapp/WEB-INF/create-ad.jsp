@@ -18,6 +18,8 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <h1>Create an Ad</h1>
+    <br>
+    <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
     <div class="form-container">
         <div class="input-container">
             <form action="/ads/create" method="post">

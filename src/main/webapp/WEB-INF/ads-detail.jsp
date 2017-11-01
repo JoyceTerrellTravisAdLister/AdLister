@@ -17,6 +17,7 @@
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <h1>Ad Details</h1>
+<a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
     <div class="card-container">
         <div class="card" style="">
             <%--<img class="card-img-top" src="http://lorempixel.com/300/300/people" alt="Card image cap">--%>

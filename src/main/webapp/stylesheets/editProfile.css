@@ -47,3 +47,9 @@ a.btn.btn-primary {
     margin-left: 8px;
     margin-bottom: 5px;
 }
+
+.btn-return {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}

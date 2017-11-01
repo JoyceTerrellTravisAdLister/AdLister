@@ -25,10 +25,10 @@ public class EditProfileServlet extends HttpServlet {
         HashMap<String, String> errors = new HashMap<>();
 
         if (!email.contains("@") || !email.contains(".")) {
-            errors.put("improper", "Improper email address found");
+            errors.put("improper", "Invalid email address.");
         }
         if (email.isEmpty()) {
-            errors.put("nothing", "Current email address has not been changed");
+            errors.put("nothing", "\nEmail address has not been changed. \nPlease try again.");
         }
 
         request.setAttribute("errors", errors);
