@@ -22,9 +22,9 @@
         <a href="/profile/edit" class="btn btn-default">Edit Profile</a>
         <a href="/profile/password" class="btn btn-default">Change Password</a>
         <a href="/ads/create" class="btn btn-default">Create an Ad</a>
+        <a href="/ads/deleted" class="btn btn-default">Deleted Ads</a>
         <span> ${sessionScope.id}</span>
     </div>
-
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-sm-3">
