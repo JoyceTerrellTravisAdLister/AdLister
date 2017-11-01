@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "EditProfileServlet", urlPatterns = "/profile/edit")
 public class EditProfileServlet extends HttpServlet {
@@ -18,17 +19,27 @@ public class EditProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = (User)request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user");
         String email = request.getParameter("email");
 
+        HashMap<String, String> errors = new HashMap<>();
 
-
-        if(user.getEmail().isEmpty() || user.getEmail().equals(email)){
-            response.sendRedirect("/profile/edit");
-        } else {
-            user.setEmail(email);
-            DaoFactory.getUsersDao().update(user);
-            response.sendRedirect("/profile");
+        if (!email.contains("@") || !email.contains(".")) {
+            errors.put("improper", "Improper email address found");
         }
+        if (email.isEmpty()) {
+            errors.put("nothing", "Current email address has not been changed");
+        }
+
+        request.setAttribute("errors", errors);
+
+        if (!email.contains("@") || !email.contains(".") || email.isEmpty()) {
+            request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
+        }
+
+        user.setEmail(email);
+        DaoFactory.getUsersDao().update(user);
+        response.sendRedirect("/profile");
     }
+
 }
