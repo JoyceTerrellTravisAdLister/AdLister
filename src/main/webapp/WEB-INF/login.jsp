@@ -42,6 +42,13 @@
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input id="username" name="username" class="form-control" type="text" value="${username}">
+                        <c:if test="${error != null}">
+                            <span class="errors">${error}</span>
+                        </c:if>
+
+                        <c:if test="${errors.containsKey('exist')}">
+                            <span class="errors">${errors.get('exist')}</span>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
