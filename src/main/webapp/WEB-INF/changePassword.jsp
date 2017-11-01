@@ -40,7 +40,9 @@
             <c:if test="${error != null}">
                 <span class="errors">${error}</span>
             </c:if>
-
+            <c:if test="${errors.containsKey('mustHave')}">
+                <span class="errors">${errors.get('mustHave')}</span>
+            </c:if>
             <c:if test="${errors.containsKey('current')}">
                 <span class="errors">${errors.get('confirm')}</span>
             </c:if>
