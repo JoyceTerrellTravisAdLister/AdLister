@@ -1,10 +1,12 @@
 package dao;
 
 import models.Ad;
+import models.Category;
 
 public class DaoFactory {
     private static Users usersDao = null;
     private static Ads adsDao = null;
+    private static Categories categoriesDao = null;
 
     public static Users getUsersDao() {
         if (usersDao == null) {
@@ -20,5 +22,13 @@ public class DaoFactory {
         }
 
         return adsDao;
+    }
+
+    public static Categories getCategoriesDao() {
+        if (categoriesDao == null) {
+            categoriesDao = new MySQLCategoriesDao();
+        }
+
+        return categoriesDao;
     }
 }
